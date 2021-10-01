@@ -13,6 +13,28 @@
   }
 }
 
+h1 {
+  color: rgb(0, 255, 242);
+}
+
+.btn {
+  display: inline-block;
+  background: rgb(60, 0, 0);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+body {
+  background-color: #00474f
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
