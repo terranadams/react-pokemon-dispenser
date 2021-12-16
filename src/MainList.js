@@ -1,5 +1,6 @@
 import React from 'react'
 import Generate from './Generate'
+import PokeCard from './PokeCard'
 import { useState, useEffect } from 'react'
 
 
@@ -26,11 +27,7 @@ const MainList = (props) => {
         <div>
             <Generate onClick={fetchNewPokemon}/>
             {pokelist.map(pokemon => ( 
-              <div style={{backgroundColor: '#00474f'}}>
-              <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
-              <img src={pokemon.photo} width="300px" height="300px"/>
-              <hr></hr>
-              </div>
+              <PokeCard pokemon={pokemon} />
             ))}
         </div>
     )
