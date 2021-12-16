@@ -1,4 +1,5 @@
 import React from 'react'
+import Generate from './Generate'
 import { useState, useEffect } from 'react'
 
 
@@ -23,7 +24,7 @@ const MainList = (props) => {
 
     return (
         <div>
-            <button className='btn' onClick={fetchNewPokemon}>Get New Pokemon</button>
+            <Generate onClick={fetchNewPokemon}/>
             {pokelist.map(pokemon => ( 
               <div style={{backgroundColor: '#00474f'}}>
               <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
