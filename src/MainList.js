@@ -16,11 +16,8 @@ const MainList = (props) => {
   const fetchNewPokemon = async () => {
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 932) + 1}/`)
     const newPokemonData = await data.json()
-    const newPokemon = {
-      name: newPokemonData.name,
-      photo: newPokemonData.sprites.front_default
-    }
-    setPokelist([newPokemon, ...pokelist])
+    console.log(newPokemonData)
+    setPokelist([newPokemonData, ...pokelist])
   }
 
     return (
