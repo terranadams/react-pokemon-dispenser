@@ -8,8 +8,8 @@ const PokeCard = ({ pokemon }) => {
     //   <img src={pokemon.sprites.front_default} width='300px' height='300px' />
     //   <hr></hr>
     // </div>
-    <Col md>
-      <Card key={pokemon.id} style={{ width: '18rem' }}>
+    <Col xs className='mb-4'>
+      <Card key={pokemon.id} style={{ width: '200px' }}>
         <Card.Img
           variant='top'
           width='200px'

@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 
 const Generate = (props) => {
   return (
-    <Button variant='success' onClick={props.onClick}>
+    <Button className='m-4' variant='success' onClick={props.onClick}>
       Get New Pokemon
     </Button>
   )
