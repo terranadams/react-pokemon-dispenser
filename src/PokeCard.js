@@ -8,8 +8,7 @@ const PokeCard = ({ pokemon }) => {
     //   <img src={pokemon.sprites.front_default} width='300px' height='300px' />
     //   <hr></hr>
     // </div>
-    <Col xs className='mb-4'>
-      <Card key={pokemon.id} style={{ width: '200px' }}>
+      <Card key={pokemon.id} className='bg-secondary' style={{width: '220px', height: '280px'}}>
         <Card.Img
           variant='top'
           width='200px'
@@ -22,7 +21,6 @@ const PokeCard = ({ pokemon }) => {
           <Card.Text></Card.Text>
         </Card.Body>
       </Card>
-    </Col>
   )
 }
 
