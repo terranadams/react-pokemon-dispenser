@@ -2,7 +2,9 @@ import './App.css'
 import MainList from './MainList'
 import Generate from './Generate'
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css' // THIS IS WHAT YOU NEED FOR THE BOOTSTRAP TO WORK
+import HomeScreen from './HomeScreen'
 
 function App() {
   useEffect(() => {}, [])
@@ -21,10 +23,7 @@ function App() {
   }
 
   return (
-    <div className='App' style={{backgroundColor: '#004048'}}>
-      <Generate onClick={fetchNewPokemon} />
-      <MainList pokelist={pokelist}/>
-    </div>
+    <HomeScreen onClick={fetchNewPokemon} pokelist={pokelist}/>
   )
 }
 
