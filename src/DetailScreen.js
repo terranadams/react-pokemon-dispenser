@@ -1,11 +1,26 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const DetailScreen = () => {
-    return (
-        <div>
-            Details Screen
-        </div>
-    )
+  let { id } = useParams() // the new and improved way of getting parameters.
+
+  useEffect(() => {
+      fetchPokeData()
+  }, [])
+
+  const fetchPokeData = async () => {
+      const data = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${id}/`
+      )
+      const newPokemonData = await data.json()
+      console.log(newPokemonData)
+      // setPokeData(newPokemonData)
+    }
+
+  const [pokeData, setPokeData] = useState()
+
+  return <div>{pokeData}</div>
 }
 
 export default DetailScreen

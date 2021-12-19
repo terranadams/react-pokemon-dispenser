@@ -15,7 +15,7 @@ const HomeScreen = (props) => {
       }/`
     )
     const newPokemonData = await data.json()
-    console.log(newPokemonData)
+    // console.log(newPokemonData)
     setPokelist([newPokemonData, ...pokelist])
   }
 
