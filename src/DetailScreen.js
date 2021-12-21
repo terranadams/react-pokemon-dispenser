@@ -6,22 +6,27 @@ const DetailScreen = () => {
   let { id } = useParams() // the new and improved way of getting parameters.
 
   useEffect(() => {
-      fetchPokeData()
+    fetchPokeData()
   }, [])
 
-  const [pokeData, setPokeData] = useState()
   
+  const [pokeData, setPokeData] = useState({})
+  console.log(pokeData)
+
   const fetchPokeData = async () => {
-      const data = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${id}/`
-      )
-      const newPokemonData = await data.json()
-      console.log(newPokemonData)
-      // setPokeData(newPokemonData)
-    }
+    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
+      async (res) => {
+        const newPokemonData = await res.json() // Remember the 'await'
+        setPokeData(newPokemonData)
+      }
+    )
+  }
 
-
-  return <div>{pokeData}</div>
+  return (
+    <div>
+      {JSON.stringify(pokeData)}
+    </div>
+  )
 }
 
 export default DetailScreen

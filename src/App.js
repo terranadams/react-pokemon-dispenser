@@ -4,14 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css' // THIS IS WHAT YOU NEED FOR THE B
 import HomeScreen from './HomeScreen'
 import DetailScreen from './DetailScreen'
 
+
 function App() {
 
   return (
-    // <HomeScreen/>
+    // <ListContext.Provider value={}>
     <Routes>
       <Route path='/' element={<HomeScreen/>} exact />
       <Route path='/:id' element={<DetailScreen/>} exact />
     </Routes>
+    // </ListContext.Provider>
   )
 }
 
