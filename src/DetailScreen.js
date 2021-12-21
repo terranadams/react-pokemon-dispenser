@@ -9,6 +9,8 @@ const DetailScreen = () => {
       fetchPokeData()
   }, [])
 
+  const [pokeData, setPokeData] = useState()
+  
   const fetchPokeData = async () => {
       const data = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${id}/`
@@ -18,7 +20,6 @@ const DetailScreen = () => {
       // setPokeData(newPokemonData)
     }
 
-  const [pokeData, setPokeData] = useState()
 
   return <div>{pokeData}</div>
 }
