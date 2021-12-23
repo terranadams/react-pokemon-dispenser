@@ -1,6 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { Col, Row, Container, Image, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const DetailScreen = () => {
   let { id } = useParams() // the new and improved way of getting parameters.
@@ -9,9 +11,8 @@ const DetailScreen = () => {
     fetchPokeData()
   }, [])
 
-  
   const [pokeData, setPokeData] = useState({})
-  console.log(pokeData)
+  // console.log(pokeData)
 
   const fetchPokeData = async () => {
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
@@ -24,7 +25,17 @@ const DetailScreen = () => {
 
   return (
     <div>
-      {JSON.stringify(pokeData)}
+      {console.log(pokeData.sprites)}
+      <Link to='/'>
+      <Button>Return</Button>
+      </Link>
+      <Container>
+        <Row>
+          <Col xs={6} md={4}>
+            <Image src={pokeData.sprites.back_default} width='150' rounded />
+          </Col>
+        </Row>
+      </Container>
     </div>
   )
 }
