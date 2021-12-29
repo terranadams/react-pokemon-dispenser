@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom'
 const DetailScreen = () => {
   let { id } = useParams() // the new and improved way of getting parameters.
 
+  const [pokeData, setPokeData] = useState({})
   useEffect(() => {
     fetchPokeData()
-  }, [])
+  }, [pokeData])
 
-  const [pokeData, setPokeData] = useState({})
   // console.log(pokeData)
 
   const fetchPokeData = async () => {
@@ -25,15 +25,16 @@ const DetailScreen = () => {
 
   return (
     <div>
-      {console.log(pokeData.sprites)}
       <Link to='/'>
       <Button>Return</Button>
       </Link>
       <Container>
         <Row>
-          <Col xs={6} md={4}>
+          {pokeData.name}
+          {/* {pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1)} */}
+          {/* <Col xs={6} md={4}>
             <Image src={pokeData.sprites.back_default} width='150' rounded />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </div>
