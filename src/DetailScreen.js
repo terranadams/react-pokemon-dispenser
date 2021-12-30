@@ -26,16 +26,20 @@ const DetailScreen = () => {
   return (
     <div>
       <Link to='/'>
-      <Button>Return</Button>
+        <Button>Return</Button>
       </Link>
       <Container>
-        <Row>
-          {pokeData.name}
-          {/* {pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1)} */}
-          {/* <Col xs={6} md={4}>
-            <Image src={pokeData.sprites.back_default} width='150' rounded />
-          </Col> */}
-        </Row>
+        <h3>{pokeData?.name?.charAt(0)?.toUpperCase() + pokeData?.name?.slice(1)}</h3>
+
+        {/* <Row>
+          {pokeData.sprites.map((pic) => {
+            <Col xs={6} md={4}>
+              <Image src={pokeData?.sprites?.pic} width='150' rounded />
+            </Col>
+          })}
+        </Row> */}
+
+
       </Container>
     </div>
   )
