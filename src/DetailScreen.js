@@ -19,25 +19,33 @@ const DetailScreen = () => {
       async (res) => {
         const newPokemonData = await res.json() // Remember the 'await'
         setPokeData(newPokemonData)
+        console.log(newPokemonData.sprites)
       }
     )
   }
 
   return (
     <div>
-      <Link to='/'>
+      <Link to='/' className='m-4' variant='success'>
         <Button>Return</Button>
       </Link>
       <Container>
         <h3>{pokeData?.name?.charAt(0)?.toUpperCase() + pokeData?.name?.slice(1)}</h3>
 
-        {/* <Row>
-          {pokeData.sprites.map((pic) => {
-            <Col xs={6} md={4}>
-              <Image src={pokeData?.sprites?.pic} width='150' rounded />
+        <Row>
+            <Col>
+              <Image src={pokeData?.sprites?.front_default} width='150' />
             </Col>
-          })}
-        </Row> */}
+            <Col>
+              <Image src={pokeData?.sprites?.back_default} width='150' />
+            </Col>
+            <Col>
+              <Image src={pokeData?.sprites?.front_shiny} width='150' />
+            </Col>
+            <Col>
+              <Image src={pokeData?.sprites?.back_shiny} width='150' />
+            </Col>
+        </Row>
 
 
       </Container>
