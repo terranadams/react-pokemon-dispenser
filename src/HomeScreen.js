@@ -1,12 +1,11 @@
 import React from 'react'
 import Generate from './Generate'
 import MainList from './MainList'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { ListContext } from './contexts/ListContext'
 
 
 const HomeScreen = (props) => {
-  useEffect(() => {}, [])
-  const [pokelist, setPokelist] = useState([])
 
   const fetchNewPokemon = async () => {
     const data = await fetch(
@@ -18,6 +17,9 @@ const HomeScreen = (props) => {
     // console.log(newPokemonData)
     setPokelist([newPokemonData, ...pokelist])
   }
+  
+  const {pokelist, setPokelist} = useContext(ListContext)
+
 
 
     return (
