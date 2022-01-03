@@ -1,28 +1,38 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Col, Row, Container, Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { ListContext } from './contexts/ListContext'
 
 const DetailScreen = () => {
-  let { id } = useParams() // the new and improved way of getting parameters.
+
+  // const [pokeData, setPokeData] = useState({})
+  // useEffect(() => {
+  //   fetchPokeData()
+  // }, [])
+
+  // // console.log(pokeData)
+  // const fetchPokeData = async () => {
+  //   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
+  //     async (res) => {
+  //       const newPokemonData = await res.json() // Remember the 'await'
+  //       setPokeData(newPokemonData)
+  //       console.log(newPokemonData.sprites)
+  //     }
+  //   )
+  // }
 
   const [pokeData, setPokeData] = useState({})
+  const { pokelist } = useContext(ListContext)
+
+  let { id } = useParams() // the new and improved way of getting parameters.
   useEffect(() => {
-    fetchPokeData()
+    // console.log(id)
+    // console.log(pokelist)
+    const pokemon = pokelist.filter(x => x.id === parseInt(id))
+    setPokeData(pokemon[0])
   }, [])
-
-  // console.log(pokeData)
-
-  const fetchPokeData = async () => {
-    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
-      async (res) => {
-        const newPokemonData = await res.json() // Remember the 'await'
-        setPokeData(newPokemonData)
-        console.log(newPokemonData.sprites)
-      }
-    )
-  }
 
   return (
     <div>
