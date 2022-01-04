@@ -28,9 +28,10 @@ const DetailScreen = () => {
 
   let { id } = useParams() // the new and improved way of getting parameters.
   useEffect(() => {
-    // console.log(id)
-    // console.log(pokelist)
-    const pokemon = pokelist.filter(x => x.id === parseInt(id))
+    console.log(id)
+    console.log(pokelist)
+    const pokemon = pokelist.filter(x => x.id == id)
+    console.log(pokemon)
     setPokeData(pokemon[0])
   }, [])
 
